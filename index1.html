@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Better Call CRO Sol — Conversion Rate Optimization & Growth Consulting</title>
+  <meta name="description" content="Enterprise CRO & growth consulting for mid-market and enterprise brands. Webflow Optimize & Analyze certified partner. 15+ years driving measurable revenue impact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:    #080C14;
+      --bg2:   #0C1220;
+      --bg3:   #111826;
+      --bg4:   #151E2E;
+      --teal:  #26C0CB;
+      --teal2: #1A9EA8;
+      --brick: #C95842;
+      --txt:   #EEE9E2;
+      --txt2:  #8FA0BA;
+      --txt3:  #465870;
+      --bdr:   rgba(255,255,255,.07);
+      --bdr2:  rgba(255,255,255,.04);
+      --ff:    'Plus Jakarta Sans', sans-serif;
+      --r:     8px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--txt);
+      font-family: var(--ff); font-size: 16px;
+      line-height: 1.65; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+    .label {
+      display: inline-flex; align-items: center; gap: .45rem;
+      font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 1.4rem;
+    }
+    .label::before { content:''; width:18px; height:2px; background:var(--teal); border-radius:2px; }
+    h2.t {
+      font-size: clamp(1.9rem,3.2vw,3rem); font-weight: 800;
+      letter-spacing: -.03em; line-height: 1.1; color: var(--txt); margin-bottom: 1.2rem;
+    }
+    h2.t span { color: var(--teal); }
+    .sub { font-size:1rem; color:var(--txt2); max-width:540px; line-height:1.8; font-weight:400; }
+    .sub strong { color:var(--txt); font-weight:600; }
+    section { padding: 7rem 0; }
+    .btn {
+      display:inline-flex; align-items:center; gap:.45rem;
+      font-family:var(--ff); font-weight:700; text-decoration:none;
+      cursor:pointer; border:none; transition:all .18s ease;
+    }
+    .btn-p {
+      background:var(--teal); color:#080C14;
+      font-size:.82rem; padding:.55rem 1.3rem; border-radius:6px;
+    }
+    .btn-p:hover { background:#36D0DB; transform:translateY(-1px); box-shadow:0 8px 24px rgba(38,192,203,.28); }
+    .btn-pl { font-size:.95rem; padding:.8rem 1.8rem; border-radius:8px; }
+    .btn-o {
+      background:transparent; border:1px solid var(--bdr); color:var(--txt);
+      font-size:.95rem; font-weight:600; padding:.8rem 1.8rem; border-radius:8px;
+    }
+    .btn-o:hover { border-color:var(--teal); color:var(--teal); background:rgba(38,192,203,.06); }
+
+    /* NAV */
+    nav {
+      position:sticky; top:0; z-index:200; height:64px;
+      background:rgba(8,12,20,.88); backdrop-filter:blur(20px) saturate(180%);
+      border-bottom:1px solid var(--bdr);
+    }
+    nav .wrap { height:100%; display:flex; align-items:center; justify-content:space-between; }
+    .nav-brand { font-size:.95rem; font-weight:800; letter-spacing:-.01em; color:var(--txt); text-decoration:none; }
+    .nav-brand em { font-style:normal; color:var(--teal); }
+    .nav-links { display:flex; align-items:center; gap:2rem; list-style:none; }
+    .nav-links a { font-size:.82rem; font-weight:500; color:var(--txt2); text-decoration:none; transition:color .18s; }
+    .nav-links a:hover { color:var(--txt); }
+    .nav-links a.btn-p { color:#080C14 !important; }
+    .nav-links a.btn-p:hover { color:#080C14 !important; }
+
+    /* HERO */
+    .hero {
+      min-height:calc(100vh - 64px); display:grid; grid-template-columns:1fr 1fr;
+      overflow:hidden; position:relative;
+    }
+    .hg1 {
+      position:absolute; pointer-events:none; width:800px; height:800px; border-radius:50%;
+      background:radial-gradient(circle,rgba(38,192,203,.1) 0%,transparent 65%);
+      top:-200px; left:-150px;
+    }
+    .hg2 {
+      position:absolute; pointer-events:none; width:500px; height:500px; border-radius:50%;
+      background:radial-gradient(circle,rgba(201,88,66,.07) 0%,transparent 65%);
+      bottom:0; right:30%;
+    }
+    .hero-left {
+      display:flex; flex-direction:column; justify-content:center;
+      padding:6rem 5% 6rem 5%; position:relative; z-index:2;
+    }
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:.6rem;
+      font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+      color:var(--teal); background:rgba(38,192,203,.1); border:1px solid rgba(38,192,203,.22);
+      border-radius:50px; padding:.38rem 1rem; width:fit-content; margin-bottom:2rem;
+    }
+    .edot { width:6px; height:6px; border-radius:50%; background:var(--teal); animation:blink 2.2s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .hero-h1 {
+      font-size:clamp(2.8rem,4.8vw,4.8rem); font-weight:800;
+      letter-spacing:-.04em; line-height:1.05; color:var(--txt); margin-bottom:1.6rem;
+    }
+    .hero-h1 .a { color:var(--teal); }
+    .hero-sub { font-size:1.05rem; font-weight:400; color:var(--txt2); line-height:1.8; max-width:480px; margin-bottom:2.8rem; }
+    .hero-sub strong { color:var(--txt); font-weight:600; }
+    .hero-actions { display:flex; align-items:center; gap:.9rem; flex-wrap:wrap; margin-bottom:3.5rem; }
+    .hero-div { width:100%; height:1px; background:var(--bdr); margin-bottom:2.5rem; }
+    .hero-stats { display:flex; gap:3rem; }
+    .sv { font-size:1.9rem; font-weight:800; letter-spacing:-.03em; color:var(--txt); line-height:1; }
+    .sv span { color:var(--teal); }
+    .sl { font-size:.78rem; font-weight:500; color:var(--txt3); margin-top:.35rem; }
+    .hero-right { position:relative; overflow:hidden; }
+    .hiw { position:absolute; inset:0; }
+    .hiw img { width:100%; height:100%; object-fit:cover; object-position:center 15%; display:block; }
+    .hif1 { position:absolute; inset:0; background:linear-gradient(to right,var(--bg) 0%,rgba(8,12,20,.2) 40%,transparent 70%); }
+    .hif2 { position:absolute; inset:0; background:linear-gradient(to top,var(--bg) 0%,transparent 40%); }
+    .hfb {
+      position:absolute; bottom:2.5rem; right:2rem; z-index:3;
+      background:rgba(12,18,32,.92); backdrop-filter:blur(14px);
+      border:1px solid var(--bdr); border-radius:var(--r); padding:1rem 1.3rem; min-width:190px;
+    }
+    .hfbl { font-size:.65rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--txt3); margin-bottom:.35rem; }
+    .hfbt { font-size:.9rem; font-weight:800; color:var(--txt); margin-bottom:.65rem; }
+    .hfbd { display:flex; gap:.4rem; }
+    .hfbd span { width:8px; height:8px; border-radius:50%; }
+    .hfbd .d1 { background:#4353FF; }
+    .hfbd .d2 { background:var(--teal); }
+    .hfbd .d3 { background:#A970FF; }
+
+    /* LOGOS CAROUSEL */
+    .logos-bar {
+      background:var(--bg2); border-top:1px solid var(--bdr); border-bottom:1px solid var(--bdr);
+      padding:2.2rem 0; overflow:hidden;
+    }
+    .logos-lbl {
+      text-align:center; font-size:.67rem; font-weight:700;
+      letter-spacing:.13em; text-transform:uppercase; color:var(--txt3); margin-bottom:1.8rem;
+    }
+    .c-wrap { overflow:hidden; position:relative; }
+    .c-wrap::before,.c-wrap::after {
+      content:''; position:absolute; top:0; bottom:0; width:120px; z-index:2; pointer-events:none;
+    }
+    .c-wrap::before { left:0; background:linear-gradient(to right,var(--bg2),transparent); }
+    .c-wrap::after  { right:0; background:linear-gradient(to left,var(--bg2),transparent); }
+    .c-track {
+      display:flex; align-items:center; width:max-content;
+      animation:scroll 34s linear infinite;
+    }
+    .c-track:hover { animation-play-state:paused; }
+    @keyframes scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    .c-item { display:flex; align-items:center; justify-content:center; padding:0 3rem; flex-shrink:0; height:52px; }
+    .c-item img {
+      height:34px; width:auto; max-width:130px; object-fit:contain;
+      filter:grayscale(1) brightness(2) opacity(.5); transition:filter .25s;
+    }
+    .c-item img:hover { filter:grayscale(0) brightness(1) opacity(1); }
+    .c-item.sm img { height:24px; }
+    .c-item.md img { height:30px; }
+    .c-item.lg img { height:42px; }
+
+    /* PAIN */
+    .pain-s { background:var(--bg2); }
+    .pain-in { display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
+    .pain-list { display:flex; flex-direction:column; gap:0; }
+    .pi {
+      display:flex; gap:1.2rem; align-items:flex-start;
+      padding:1.5rem 0; border-bottom:1px solid var(--bdr);
+    }
+    .pi:first-child { padding-top:0; }
+    .pi:last-child  { border-bottom:none; padding-bottom:0; }
+    .pn {
+      font-size:.68rem; font-weight:800; letter-spacing:.08em; color:var(--teal);
+      background:rgba(38,192,203,.1); border:1px solid rgba(38,192,203,.18);
+      border-radius:4px; padding:.3rem .5rem; flex-shrink:0; margin-top:.1rem;
+    }
+    .pi h4 { font-size:.95rem; font-weight:700; color:var(--txt); margin-bottom:.35rem; letter-spacing:-.01em; }
+    .pi p  { font-size:.86rem; color:var(--txt2); line-height:1.7; }
+    .pain-r {
+      background:var(--bg3); border:1px solid var(--bdr);
+      border-radius:12px; padding:2.5rem;
+    }
+    .pain-q { font-size:1.15rem; font-weight:300; font-style:italic; color:var(--txt); line-height:1.7; margin-bottom:1.8rem; }
+    .pain-q strong { font-style:normal; font-weight:700; color:var(--teal); }
+    .pain-att { font-size:.82rem; font-weight:500; color:var(--txt2); }
+    .pain-att strong { color:var(--teal); font-weight:700; }
+    .phr { height:1px; background:var(--bdr); margin:2rem 0; }
+    .pain-note { font-size:.85rem; color:var(--txt2); line-height:1.75; }
+
+    /* ABOUT */
+    .about-s { background:var(--bg); }
+    .about-in { display:grid; grid-template-columns:400px 1fr; gap:6rem; align-items:start; }
+    .apc { position:relative; }
+    .aif { border-radius:12px; overflow:hidden; aspect-ratio:4/5; position:relative; }
+    .aif img { width:100%; height:100%; object-fit:cover; object-position:center 10%; display:block; }
+    .aif::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(to bottom,transparent 60%,rgba(8,12,20,.75) 100%);
+    }
+    .aib {
+      position:absolute; top:-10px; right:-10px;
+      width:100%; height:100%;
+      border:1.5px solid rgba(38,192,203,.2); border-radius:12px; pointer-events:none;
+    }
+    .apills {
+      position:absolute; bottom:1.4rem; left:1.4rem; right:1.4rem;
+      z-index:2; display:flex; gap:.6rem; flex-wrap:wrap;
+    }
+    .pill {
+      background:rgba(12,18,32,.88); backdrop-filter:blur(10px);
+      border:1px solid var(--bdr); border-radius:50px;
+      padding:.3rem .85rem; font-size:.7rem; font-weight:700; color:var(--txt);
+    }
+    .about-c { padding-top:.5rem; }
+    .about-intro { font-size:1.05rem; font-weight:400; color:var(--txt2); line-height:1.85; margin-bottom:2.5rem; }
+    .about-intro strong { color:var(--txt); font-weight:600; }
+    .cl { display:flex; flex-direction:column; gap:.75rem; margin-bottom:2.5rem; }
+    .cr {
+      display:flex; gap:1rem; align-items:flex-start; padding:1.1rem 1.3rem;
+      background:var(--bg2); border:1px solid var(--bdr); border-radius:var(--r);
+      transition:border-color .2s;
+    }
+    .cr:hover { border-color:rgba(38,192,203,.25); }
+    .ci { font-size:1.1rem; flex-shrink:0; margin-top:.05rem; }
+    .ct { font-size:.88rem; color:var(--txt2); line-height:1.55; }
+    .ct strong { color:var(--txt); font-weight:700; display:block; margin-bottom:.15rem; }
+    .impact-b {
+      display:flex; align-items:center; gap:2rem;
+      background:linear-gradient(135deg,rgba(38,192,203,.1),rgba(38,192,203,.03));
+      border:1px solid rgba(38,192,203,.18); border-radius:var(--r); padding:1.5rem 2rem;
+    }
+    .iv { font-size:2.4rem; font-weight:800; letter-spacing:-.04em; color:var(--teal); white-space:nowrap; }
+    .it { font-size:.88rem; color:var(--txt2); line-height:1.6; }
+    .it strong { color:var(--txt); font-weight:600; display:block; }
+
+    /* SERVICES */
+    .svc-s { background:var(--bg2); }
+    .svc-hdr { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:end; margin-bottom:4rem; }
+    .svc-g {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:1px; background:var(--bdr);
+      border:1px solid var(--bdr); border-radius:12px; overflow:hidden;
+    }
+    .sc { background:var(--bg3); padding:2rem 1.8rem; transition:background .2s; }
+    .sc:hover { background:var(--bg4); }
+    .sc-feat {
+      grid-column:span 2; display:grid;
+      grid-template-columns:1fr 1fr; gap:2rem; align-items:center;
+    }
+    .sico {
+      width:42px; height:42px; border-radius:10px;
+      background:rgba(38,192,203,.1); border:1px solid rgba(38,192,203,.18);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.1rem; margin-bottom:1.4rem;
+    }
+    .stitle { font-size:.98rem; font-weight:700; color:var(--txt); letter-spacing:-.01em; margin-bottom:.6rem; }
+    .sdesc  { font-size:.84rem; color:var(--txt2); line-height:1.72; }
+    .stags  { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1.2rem; }
+    .tag {
+      font-size:.67rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase;
+      padding:.22rem .65rem; border-radius:4px;
+      background:rgba(38,192,203,.08); border:1px solid rgba(38,192,203,.15); color:var(--teal);
+    }
+    .tag-b { background:rgba(201,88,66,.08); border-color:rgba(201,88,66,.18); color:#D97060; }
+    .wfb {
+      display:inline-flex; align-items:center; gap:.45rem;
+      font-size:.75rem; font-weight:700;
+      background:rgba(67,83,255,.12); border:1px solid rgba(67,83,255,.25);
+      border-radius:6px; padding:.4rem .9rem; color:#8898FF;
+    }
+    .wfb-t { background:rgba(38,192,203,.1); border-color:rgba(38,192,203,.22); color:var(--teal); }
+    .wfbs { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.4rem; }
+    .abviz { background:var(--bg2); border:1px solid var(--bdr); border-radius:10px; padding:1.3rem; }
+    .abrow { display:flex; gap:.8rem; }
+    .abcol { flex:1; border-radius:8px; padding:.9rem; border:1px solid var(--bdr); }
+    .abcol-a { background:rgba(38,192,203,.07); border-color:rgba(38,192,203,.2); }
+    .abcol-b { background:rgba(201,88,66,.07); border-color:rgba(201,88,66,.18); }
+    .ablbl { font-size:.62rem; font-weight:800; letter-spacing:.1em; margin-bottom:.65rem; }
+    .ablbl-a { color:var(--teal); }
+    .ablbl-b { color:#D97060; }
+    .abtrk { height:4px; background:rgba(255,255,255,.07); border-radius:2px; margin-bottom:.45rem; }
+    .abfil { height:100%; border-radius:2px; }
+    .abfil-a { background:var(--teal); width:72%; }
+    .abfil-b { background:#D97060; width:46%; }
+    .abnum { font-size:.67rem; color:var(--txt2); }
+    .abnum strong { color:var(--txt); }
+    .abwin {
+      text-align:center; margin-top:.9rem; font-size:.68rem; font-weight:700; letter-spacing:.07em;
+      color:var(--teal); background:rgba(38,192,203,.1); border:1px solid rgba(38,192,203,.18);
+      border-radius:50px; padding:.3rem 0;
+    }
+
+    /* PROCESS */
+    .proc-s { background:var(--bg); }
+    .proc-g {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:1px; background:var(--bdr);
+      border:1px solid var(--bdr); border-radius:12px; overflow:hidden; margin-top:4rem;
+    }
+    .pstep { background:var(--bg2); padding:2.2rem 1.8rem; transition:background .2s; }
+    .pstep:hover { background:var(--bg3); }
+    .pidx { font-size:.68rem; font-weight:800; letter-spacing:.1em; color:var(--teal); margin-bottom:1.4rem; }
+    .ptitle { font-size:.98rem; font-weight:700; color:var(--txt); letter-spacing:-.01em; margin-bottom:.7rem; }
+    .pbody  { font-size:.84rem; color:var(--txt2); line-height:1.72; }
+
+    /* FOR */
+    .for-s { background:var(--bg2); }
+    .for-g {
+      display:grid; grid-template-columns:repeat(2,1fr);
+      gap:1px; background:var(--bdr);
+      border:1px solid var(--bdr); border-radius:12px; overflow:hidden; margin-top:4rem;
+    }
+    .fc { background:var(--bg3); padding:2rem; display:flex; gap:1.2rem; align-items:flex-start; transition:background .2s; }
+    .fc:hover { background:var(--bg4); }
+    .fic { font-size:1.3rem; flex-shrink:0; margin-top:.1rem; }
+    .fc h4 { font-size:.95rem; font-weight:700; color:var(--txt); letter-spacing:-.01em; margin-bottom:.45rem; }
+    .fc p  { font-size:.85rem; color:var(--txt2); line-height:1.7; }
+
+    /* TESTIMONIALS */
+    .tst-s { background:var(--bg); }
+    .tst-g { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:4rem; }
+    .tc {
+      background:var(--bg2); border:1px solid var(--bdr); border-radius:12px;
+      padding:2rem; display:flex; flex-direction:column; gap:1.5rem;
+      transition:border-color .2s, transform .2s;
+    }
+    .tc:hover { border-color:rgba(38,192,203,.2); transform:translateY(-3px); }
+    .tstars { color:var(--teal); font-size:.85rem; letter-spacing:.05em; }
+    .ttext { font-size:.9rem; font-style:italic; font-weight:300; color:var(--txt2); line-height:1.8; flex:1; }
+    .ttext strong { font-style:normal; font-weight:600; color:var(--txt); }
+    .tau { display:flex; align-items:center; gap:.9rem; }
+    .tav {
+      width:40px; height:40px; border-radius:50%;
+      background:linear-gradient(135deg,var(--teal2),var(--bg3));
+      display:flex; align-items:center; justify-content:center;
+      font-size:.8rem; font-weight:800; color:var(--bg); flex-shrink:0;
+    }
+    .tan { font-size:.88rem; font-weight:700; color:var(--txt); }
+    .tar { font-size:.75rem; color:var(--txt3); }
+
+    /* PARTNER */
+    .prt-s { background:var(--bg2); }
+    .prt-in { display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center; }
+    .crt-g {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:1px; background:var(--bdr);
+      border:1px solid var(--bdr); border-radius:12px; overflow:hidden;
+    }
+    .ccard { background:var(--bg3); padding:1.8rem 1.5rem; text-align:center; transition:background .2s; }
+    .ccard:hover { background:var(--bg4); }
+    .ccard-w { grid-column:span 2; text-align:left; display:flex; gap:1.2rem; align-items:center; }
+    .cico { font-size:1.8rem; margin-bottom:.7rem; }
+    .ccard-w .cico { margin:0; flex-shrink:0; font-size:1.6rem; }
+    .cname { font-size:.9rem; font-weight:700; color:var(--txt); margin-bottom:.3rem; }
+    .csub  { font-size:.78rem; color:var(--txt2); line-height:1.5; }
+    .cbadge {
+      display:inline-block; margin-top:.7rem;
+      font-size:.62rem; font-weight:800; letter-spacing:.09em; text-transform:uppercase;
+      padding:.22rem .65rem; border-radius:4px;
+    }
+    .cb-b { background:rgba(67,83,255,.12); color:#8898FF; }
+    .cb-t { background:rgba(38,192,203,.1); color:var(--teal); }
+
+    /* CTA */
+    .cta-s { background:var(--bg); text-align:center; padding:9rem 0; position:relative; overflow:hidden; }
+    .ctag {
+      position:absolute; pointer-events:none; width:800px; height:400px; border-radius:50%;
+      background:radial-gradient(ellipse,rgba(38,192,203,.1) 0%,transparent 70%);
+      top:50%; left:50%; transform:translate(-50%,-50%);
+    }
+    .cta-s .wrap { position:relative; z-index:2; }
+    .cta-s h2.t { max-width:680px; margin:0 auto 1.2rem; }
+    .cta-s .sub { margin:0 auto 3rem; text-align:center; max-width:500px; }
+    .cta-acts { display:flex; align-items:center; justify-content:center; gap:.9rem; flex-wrap:wrap; margin-bottom:1.5rem; }
+    .cta-micro { font-size:.78rem; font-weight:500; color:var(--txt3); }
+
+    /* FOOTER */
+    footer { background:var(--bg2); border-top:1px solid var(--bdr); padding:2.5rem 0; }
+    footer .wrap { display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+    .fbrand { font-size:.88rem; font-weight:800; color:var(--txt); text-decoration:none; }
+    .fbrand em { font-style:normal; color:var(--teal); }
+    .flinks { display:flex; gap:2rem; list-style:none; }
+    .flinks a { font-size:.8rem; font-weight:500; color:var(--txt3); text-decoration:none; transition:color .18s; }
+    .flinks a:hover { color:var(--txt2); }
+    .fcopy { font-size:.75rem; color:var(--txt3); }
+
+    /* REVEAL */
+    .r { opacity:0; transform:translateY(22px); transition:opacity .65s ease,transform .65s ease; }
+    .r.v { opacity:1; transform:none; }
+    .r.d1{transition-delay:.08s} .r.d2{transition-delay:.16s}
+    .r.d3{transition-delay:.24s} .r.d4{transition-delay:.32s}
+
+    /* RESPONSIVE */
+    @media(max-width:1024px){ .about-in{grid-template-columns:340px 1fr;gap:4rem} }
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr;min-height:auto}
+      .hero-left{padding:4rem 5%}
+      .hero-right{height:60vw;min-height:300px}
+      .pain-in,.about-in,.prt-in,.svc-hdr{grid-template-columns:1fr;gap:3rem}
+      .svc-g{grid-template-columns:1fr 1fr}
+      .sc-feat{grid-column:span 2;grid-template-columns:1fr}
+      .proc-g{grid-template-columns:1fr 1fr}
+      .tst-g{grid-template-columns:1fr}
+      .about-in{grid-template-columns:1fr}
+      .nav-links li:not(:last-child){display:none}
+      section{padding:5rem 0}
+    }
+    @media(max-width:600px){
+      .svc-g{grid-template-columns:1fr}
+      .sc-feat{grid-column:span 1}
+      .proc-g,.for-g{grid-template-columns:1fr}
+      .hero-stats{gap:1.8rem}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <a href="#" class="nav-brand">Better Call CRO <em>Sol</em></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact" class="btn btn-p">Book a Call</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hg1"></div><div class="hg2"></div>
+  <div class="hero-left">
+    <div class="eyebrow r"><div class="edot"></div>Webflow Optimize &amp; Analyze Certified Partner</div>
+    <h1 class="hero-h1 r d1">Your site has traffic.<br>Make it <span class="a">convert.</span></h1>
+    <p class="hero-sub r d2">
+      <strong>15+ years of enterprise CRO experience.</strong> From Walmart.com to Disney Parks,
+      from Adobe to Evolv AI — Sol helps mid-market &amp; enterprise brands and digital agencies
+      build systematic growth through data-driven experimentation and Webflow Optimize.
+    </p>
+    <div class="hero-actions r d3">
+      <a href="#contact" class="btn btn-p btn-pl">Book a Free Strategy Call</a>
+      <a href="#services" class="btn btn-o">See Services</a>
+    </div>
+    <div class="hero-div r d4"></div>
+    <div class="hero-stats r d4">
+      <div><div class="sv">15<span>+</span></div><div class="sl">Years in CRO</div></div>
+      <div><div class="sv">$<span>10M</span></div><div class="sl">Revenue Impact</div></div>
+      <div><div class="sv">100<span>+</span></div><div class="sl">Enterprise Clients</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hiw">
+      <img src="Sol_Real_Image.jpeg" alt="Sol Osiatynski — CRO & Growth Consultant" />
+      <div class="hif1"></div><div class="hif2"></div>
+    </div>
+    <div class="hfb">
+      <div class="hfbl">Certified Partner</div>
+      <div class="hfbt">Webflow Optimize</div>
+      <div class="hfbd"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGOS CAROUSEL -->
+<div class="logos-bar">
+  <p class="logos-lbl">Brands Sol has driven results for</p>
+  <div class="c-wrap">
+    <div class="c-track">
+      <div class="c-item lg"><img src="NFL_Logo.png" alt="NFL" /></div>
+      <div class="c-item sm"><img src="Macys_Logo.svg" alt="Macy's" /></div>
+      <div class="c-item md"><img src="disney-parks.jpg" alt="Disney Parks" /></div>
+      <div class="c-item md"><img src="msft_logo_print.png" alt="Microsoft" /></div>
+      <div class="c-item md"><img src="RBC.gif" alt="RBC Royal Bank" /></div>
+      <div class="c-item md"><img src="Western_Union.gif" alt="Western Union" /></div>
+      <div class="c-item md"><img src="redhat.png" alt="Red Hat" /></div>
+      <div class="c-item md"><img src="TFS.gif" alt="Toyota Financial Services" /></div>
+      <div class="c-item sm"><img src="dropps-logo-2024-blue.svg" alt="Dropps" /></div>
+      <div class="c-item sm"><img src="logo-force-of-nature.svg" alt="Force of Nature" /></div>
+      <!-- duplicate set for seamless loop -->
+      <div class="c-item lg"><img src="NFL_Logo.png" alt="NFL" /></div>
+      <div class="c-item sm"><img src="Macys_Logo.svg" alt="Macy's" /></div>
+      <div class="c-item md"><img src="disney-parks.jpg" alt="Disney Parks" /></div>
+      <div class="c-item md"><img src="msft_logo_print.png" alt="Microsoft" /></div>
+      <div class="c-item md"><img src="RBC.gif" alt="RBC Royal Bank" /></div>
+      <div class="c-item md"><img src="Western_Union.gif" alt="Western Union" /></div>
+      <div class="c-item md"><img src="redhat.png" alt="Red Hat" /></div>
+      <div class="c-item md"><img src="TFS.gif" alt="Toyota Financial Services" /></div>
+      <div class="c-item sm"><img src="dropps-logo-2024-blue.svg" alt="Dropps" /></div>
+      <div class="c-item sm"><img src="logo-force-of-nature.svg" alt="Force of Nature" /></div>
+    </div>
+  </div>
+</div>
+
+<!-- PAIN -->
+<section class="pain-s">
+  <div class="wrap">
+    <div class="pain-in">
+      <div>
+        <div class="label r">The Problem</div>
+        <h2 class="t r d1">Sound familiar?</h2>
+        <div class="pain-list">
+          <div class="pi r d1"><div class="pn">01</div><div><h4>Traffic that doesn't convert</h4><p>Spending on ads and SEO but conversion rates haven't moved. Every bounce is revenue walking out the door.</p></div></div>
+          <div class="pi r d2"><div class="pn">02</div><div><h4>A/B tests that go nowhere</h4><p>Your team runs experiments but they're not data-informed or statistically sound. Small wins at best.</p></div></div>
+          <div class="pi r d3"><div class="pn">03</div><div><h4>Webflow Optimize sits idle</h4><p>You invested in the platform but lack the strategy and expertise to generate a real ROI from it.</p></div></div>
+          <div class="pi r d4"><div class="pn">04</div><div><h4>Your agency needs CRO depth</h4><p>Clients are asking for optimization programs and you don't have in-house firepower to deliver.</p></div></div>
+        </div>
+      </div>
+      <div class="pain-r r d2">
+        <p class="pain-q">"Teams that base experimentation on data find winning tests <strong>20–30% of the time.</strong> Teams that don't? About 10%. That gap is your competitive advantage — or your competitor's."</p>
+        <div class="pain-att">— <strong>Sol Osiatynski</strong>, quoting 15 years of hands-on enterprise CRO</div>
+        <div class="phr"></div>
+        <p class="pain-note">The difference between brands that grow and brands that plateau isn't budget — it's a structured, insight-driven optimization program with the right expertise behind it. That's exactly what Better Call CRO Sol builds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-s" id="about">
+  <div class="wrap">
+    <div class="about-in">
+      <div class="apc r">
+        <div class="aif"><img src="Sol_Real_Image.jpeg" alt="Sol Osiatynski" /></div>
+        <div class="aib"></div>
+        <div class="apills"><span class="pill">Webflow Partner</span><span class="pill">Adobe Certified</span></div>
+      </div>
+      <div class="about-c">
+        <div class="label r">About Sol</div>
+        <h2 class="t r d1">15+ years turning <span>data into growth</span></h2>
+        <p class="about-intro r d2">I'm Sol Osiatynski — a CRO and growth consultant with over 15 years running A/B tests, personalization programs, and experimentation strategy for some of the world's most recognizable brands. I've worked inside <strong>Adobe, Evolv AI</strong>, and enterprise teams at <strong>Walmart, Macy's, Verizon, and Disney</strong> — and I bring that depth to every engagement.</p>
+        <div class="cl">
+          <div class="cr r d1"><div class="ci">🏆</div><div class="ct"><strong>8 Years — Adobe Target Senior Business Consultant</strong>Optimization &amp; personalization across every major industry vertical</div></div>
+          <div class="cr r d2"><div class="ci">🎤</div><div class="ct"><strong>Adobe Summit Speaker — 2016 &amp; 2017</strong>Created a Top 5 rated lab at Adobe Summit 2017</div></div>
+          <div class="cr r d3"><div class="ci">🛒</div><div class="ct"><strong>Enterprise eCommerce — Walmart.com, Macy's, Verizon</strong>A/B testing consultant and CRO lead across Tier-1 retail &amp; telco</div></div>
+          <div class="cr r d4"><div class="ci">🤖</div><div class="ct"><strong>Director, UX Strategy — Evolv AI</strong>Led AI-powered digital experience optimization for global enterprise brands</div></div>
+        </div>
+        <div class="impact-b r">
+          <div class="iv">$10M+</div>
+          <div class="it"><strong>Projected revenue impact</strong>driven through A/B testing and optimization programs across enterprise clients</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="svc-s" id="services">
+  <div class="wrap">
+    <div class="svc-hdr">
+      <div><div class="label r">Services</div><h2 class="t r d1">What I do <span>for you</span></h2></div>
+      <p class="sub r d2">Whether you're a CMO scaling a testing program, a founder squeezing more from your Webflow investment, or an agency that needs CRO firepower — there's an engagement model that fits.</p>
+    </div>
+    <div class="svc-g r">
+      <div class="sc sc-feat">
+        <div>
+          <div class="sico">⚡</div>
+          <div class="stitle">Webflow Optimize &amp; Analyze</div>
+          <p class="sdesc">As a certified Webflow Optimize and Analyze partner, I run the full lifecycle: setup, audience strategy, A/B and multivariate test design, AI optimization configuration, and monthly performance reporting. I turn the platform into a compounding growth engine.</p>
+          <div class="wfbs"><span class="wfb">⬛ Webflow Optimize</span><span class="wfb wfb-t">📊 Webflow Analyze</span></div>
+          <div class="stags"><span class="tag">A/B Testing</span><span class="tag">AI Optimization</span><span class="tag">Personalization</span><span class="tag">Implementation</span></div>
+        </div>
+        <div class="abviz">
+          <div class="abrow">
+            <div class="abcol abcol-a"><div class="ablbl ablbl-a">VARIANT A</div><div style="font-size:.6rem;color:var(--txt2);margin-bottom:.5rem">Conversion Rate</div><div class="abtrk"><div class="abfil abfil-a"></div></div><div class="abnum"><strong>7.2%</strong></div></div>
+            <div class="abcol abcol-b"><div class="ablbl ablbl-b">VARIANT B</div><div style="font-size:.6rem;color:var(--txt2);margin-bottom:.5rem">Conversion Rate</div><div class="abtrk"><div class="abfil abfil-b"></div></div><div class="abnum"><strong>4.6%</strong></div></div>
+          </div>
+          <div class="abwin">✓ WINNER — +56.5% LIFT</div>
+        </div>
+      </div>
+      <div class="sc"><div class="sico">🔭</div><div class="stitle">CRO Strategy &amp; Roadmapping</div><p class="sdesc">Data audit, qualitative research, heatmaps and session recordings synthesized into a prioritized experimentation roadmap backed by real evidence.</p><div class="stags"><span class="tag">Audit</span><span class="tag">Research</span><span class="tag tag-b">B2B &amp; eComm</span></div></div>
+      <div class="sc"><div class="sico">🤝</div><div class="stitle">Agency White-Label CRO</div><p class="sdesc">Augment your agency with enterprise CRO expertise. I plug in seamlessly — client-facing or behind the scenes — delivering results under your brand.</p><div class="stags"><span class="tag">White-Label</span><span class="tag tag-b">Agency Partner</span></div></div>
+      <div class="sc"><div class="sico">🛒</div><div class="stitle">eCommerce Growth Optimization</div><p class="sdesc">Shopify and enterprise eComm CRO: PDP/PLP optimization, checkout testing, cart abandonment reduction, and AOV-lifting personalized experiences.</p><div class="stags"><span class="tag">Shopify</span><span class="tag">Checkout</span><span class="tag">AOV</span></div></div>
+      <div class="sc"><div class="sico">📋</div><div class="stitle">B2B Lead Gen &amp; Marketing Sites</div><p class="sdesc">Optimize landing pages, forms, CTAs, and full funnel flows for complex B2B buyer journeys. Turn your marketing site into a predictable pipeline engine.</p><div class="stags"><span class="tag">Landing Pages</span><span class="tag">Lead Gen</span><span class="tag tag-b">SaaS &amp; B2B</span></div></div>
+      <div class="sc"><div class="sico">🎯</div><div class="stitle">Personalization &amp; AI Optimization</div><p class="sdesc">Segment-based and 1:1 personalization using Webflow Optimize's AI — delivering the right message to the right visitor at exactly the right moment.</p><div class="stags"><span class="tag">AI-Powered</span><span class="tag">Segmentation</span><span class="tag">UX</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="proc-s" id="process">
+  <div class="wrap">
+    <div class="label r">The Process</div>
+    <h2 class="t r d1">How we'll <span>work together</span></h2>
+    <p class="sub r d2">A structured, repeatable system built on 15 years of enterprise optimization. No guesswork — a clear path to measurable growth.</p>
+    <div class="proc-g">
+      <div class="pstep r"><div class="pidx">01 — DISCOVERY</div><div class="ptitle">Audit &amp; Research</div><p class="pbody">Deep dive into analytics, heatmaps, session recordings, and voice-of-customer data to uncover exactly where and why visitors aren't converting.</p></div>
+      <div class="pstep r d1"><div class="pidx">02 — STRATEGY</div><div class="ptitle">Roadmap &amp; Prioritization</div><p class="pbody">Build a prioritized backlog of data-backed hypotheses tied to business KPIs — not vanity metrics. You know what we're testing and the expected impact.</p></div>
+      <div class="pstep r d2"><div class="pidx">03 — EXECUTION</div><div class="ptitle">Test &amp; Experiment</div><p class="pbody">Design, build, and launch statistically sound A/B tests, multivariate experiments, and personalization campaigns — from setup to QA to go-live.</p></div>
+      <div class="pstep r d3"><div class="pidx">04 — GROWTH</div><div class="ptitle">Learn, Report &amp; Scale</div><p class="pbody">Every test teaches us something. Winners scale, losers inform the next iteration. Monthly reporting turns insights into compounding, sustainable growth.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR -->
+<section class="for-s">
+  <div class="wrap">
+    <div class="label r">Who This Is For</div>
+    <h2 class="t r d1">Built for <span>growth-minded</span> teams</h2>
+    <p class="sub r d2">If you're responsible for revenue, conversions, or digital performance — this is for you.</p>
+    <div class="for-g">
+      <div class="fc r"><div class="fic">📊</div><div><h4>CMOs &amp; Marketing Leaders</h4><p>You need to show ROI on every dollar. Sol builds the systems, runs the experiments, and delivers board-ready reporting that demonstrates clear revenue impact.</p></div></div>
+      <div class="fc r d1"><div class="fic">🚀</div><div><h4>CEOs &amp; Founders</h4><p>You've built something great. Now let's make sure your site is converting at the level your product and marketing investment deserves.</p></div></div>
+      <div class="fc r"><div class="fic">📈</div><div><h4>Growth &amp; eCommerce Teams</h4><p>Bring in a seasoned enterprise CRO expert to accelerate your in-house program, design smarter experiments, and get to revenue-moving wins faster.</p></div></div>
+      <div class="fc r d1"><div class="fic">🏢</div><div><h4>Digital Agencies</h4><p>White-label CRO expertise on demand. Your clients get 15+ years of enterprise optimization — you get the credit. A seamless extension of your team.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="tst-s" id="testimonials">
+  <div class="wrap">
+    <div class="label r">Social Proof</div>
+    <h2 class="t r d1">What clients &amp; <span>colleagues say</span></h2>
+    <div class="tst-g">
+      <div class="tc r"><div class="tstars">★★★★★</div><p class="ttext">"Sol is an all around great person to work with. <strong>His positive attitude is a rare and welcome change of pace.</strong> Even under pressure he always kept his cool. Sol is a class act and would be a great asset to any company."</p><div class="tau"><div class="tav">JM</div><div><div class="tan">Former Colleague</div><div class="tar">Enterprise Development Team</div></div></div></div>
+      <div class="tc r d1"><div class="tstars">★★★★★</div><p class="ttext">"Sol brings a rare combination of <strong>deep A/B testing expertise and strategic business intuition.</strong> He's not just running tests — he's building a growth system. The results speak for themselves."</p><div class="tau"><div class="tav">SR</div><div><div class="tan">Enterprise eCommerce Client</div><div class="tar">VP of Digital, Retail Brand</div></div></div></div>
+      <div class="tc r d2"><div class="tstars">★★★★★</div><p class="ttext">"Working with Sol transformed how our agency delivers CRO. <strong>He plugs in seamlessly, knows the tools inside out,</strong> and our clients have seen real, measurable lifts in conversion. He's our permanent go-to."</p><div class="tau"><div class="tav">AB</div><div><div class="tan">Digital Agency Partner</div><div class="tar">Director, Growth Strategy</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER -->
+<section class="prt-s" id="partner">
+  <div class="wrap">
+    <div class="prt-in">
+      <div>
+        <div class="label r">Official Partnership</div>
+        <h2 class="t r d1">Certified Webflow <span>Optimize &amp; Analyze</span> Partner</h2>
+        <p class="sub r d2" style="margin-top:1rem">Not just a practitioner — an official Webflow partner. Direct access to platform resources, beta features, and the full power of the Webflow ecosystem working for your optimization program.</p>
+        <div style="margin-top:2.5rem" class="r d3"><a href="#contact" class="btn btn-p btn-pl">Start Optimizing →</a></div>
+      </div>
+      <div class="crt-g r d1">
+        <div class="ccard"><div class="cico">⚡</div><div class="cname">Webflow Optimize</div><div class="csub">A/B Testing &amp; AI Optimization</div><div class="cbadge cb-b">Certified Partner</div></div>
+        <div class="ccard"><div class="cico">📊</div><div class="cname">Webflow Analyze</div><div class="csub">Analytics &amp; Behavioral Data</div><div class="cbadge cb-t">Certified Partner</div></div>
+        <div class="ccard ccard-w"><div class="cico">🏅</div><div><div class="cname">Adobe Target &amp; Marketing Cloud</div><div class="csub">8 years as Senior Business Consultant at Adobe. Presented at Adobe Summit twice. Expert in AEM, Analytics, Audience Manager &amp; Campaign.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-s" id="contact">
+  <div class="ctag"></div>
+  <div class="wrap">
+    <div class="label r" style="justify-content:center">Let's Talk</div>
+    <h2 class="t r d1">Ready to stop leaving<br>revenue on the table?</h2>
+    <p class="sub r d2">Book a free 30-minute strategy call. No pitch, no pressure — just an honest conversation about where your site is leaking conversions and what we can do about it.</p>
+    <div class="cta-acts r d3">
+      <a href="https://www.linkedin.com/in/sol-osiatynski" target="_blank" rel="noopener" class="btn btn-p btn-pl">Connect on LinkedIn</a>
+      <a href="mailto:sol@addisonapplications.com" class="btn btn-o">Send an Email</a>
+    </div>
+    <p class="cta-micro r d4">Mid-market &amp; enterprise brands · Digital agencies · eCommerce · B2B SaaS</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <a href="#" class="fbrand">Better Call CRO <em>Sol</em></a>
+    <ul class="flinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="https://www.linkedin.com/in/sol-osiatynski" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <div class="fcopy">© 2025 Sol Osiatynski · Better Call CRO Sol</div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('v'); obs.unobserve(e.target); } });
+  },{ threshold:0.1, rootMargin:'0px 0px -30px 0px' });
+  document.querySelectorAll('.r').forEach(el => obs.observe(el));
+  setTimeout(()=> document.querySelectorAll('.hero .r, nav .r').forEach(el=>el.classList.add('v')), 80);
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
+</script>
+</body>
+</html>

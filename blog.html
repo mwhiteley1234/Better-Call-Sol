@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KYMW4ZFQCV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KYMW4ZFQCV');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Better Call CRO SOL</title>
+  <meta name="description" content="CRO insights, A/B testing strategies, and conversion optimization tips from 15+ years of enterprise experience." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:    #080C14;
+      --bg2:   #0C1220;
+      --bg3:   #111826;
+      --bg4:   #151E2E;
+      --teal:  #26C0CB;
+      --teal2: #1A9EA8;
+      --brick: #C95842;
+      --txt:   #EEE9E2;
+      --txt2:  #8FA0BA;
+      --txt3:  #465870;
+      --bdr:   rgba(255,255,255,.07);
+      --bdr2:  rgba(255,255,255,.04);
+      --ff:    'Plus Jakarta Sans', sans-serif;
+      --r:     8px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--txt);
+      font-family: var(--ff); font-size: 16px;
+      line-height: 1.65; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+    .label {
+      display: inline-flex; align-items: center; gap: .45rem;
+      font-size: .7rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 1.4rem;
+    }
+    .label::before { content:''; width:18px; height:2px; background:var(--teal); border-radius:2px; }
+    h2.t {
+      font-size: clamp(1.9rem,3.2vw,3rem); font-weight: 800;
+      letter-spacing: -.03em; line-height: 1.1; color: var(--txt); margin-bottom: 1.2rem;
+    }
+    h2.t span { color: var(--teal); }
+    .sub { font-size:1rem; color:var(--txt2); max-width:540px; line-height:1.8; font-weight:400; }
+    .sub strong { color:var(--txt); font-weight:600; }
+    section { padding: 7rem 0; }
+    .btn {
+      display:inline-flex; align-items:center; gap:.45rem;
+      font-family:var(--ff); font-weight:700; text-decoration:none;
+      cursor:pointer; border:none; transition:all .18s ease;
+    }
+    .btn-p {
+      background:var(--teal); color:#080C14;
+      font-size:.82rem; padding:.55rem 1.3rem; border-radius:6px;
+    }
+    .btn-p:hover { background:#36D0DB; transform:translateY(-1px); box-shadow:0 8px 24px rgba(38,192,203,.28); }
+
+    /* NAV */
+    nav {
+      position:sticky; top:0; z-index:200; height:64px;
+      background:rgba(8,12,20,.88); backdrop-filter:blur(20px) saturate(180%);
+      border-bottom:1px solid var(--bdr);
+    }
+    nav .wrap { height:100%; display:flex; align-items:center; justify-content:space-between; }
+    .nav-brand { font-size:.95rem; font-weight:800; letter-spacing:-.01em; color:var(--txt2); text-decoration:none; }
+    .nav-brand em { font-style:normal; color:var(--teal); }
+    .nav-links { display:flex; align-items:center; gap:2rem; list-style:none; }
+    .nav-links a { font-size:.82rem; font-weight:500; color:var(--txt2); text-decoration:none; transition:color .18s; }
+    .nav-links a:hover { color:var(--txt); }
+    .nav-links a.active { color:var(--teal); }
+    .nav-links a.btn-p { color:#080C14 !important; }
+    .nav-links a.btn-p:hover { color:#080C14 !important; }
+
+    /* BLOG HERO */
+    .blog-hero {
+      padding: 5rem 0 3rem;
+      border-bottom: 1px solid var(--bdr);
+    }
+    .blog-hero h1 {
+      font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 800;
+      letter-spacing: -.03em; line-height: 1.1; color: var(--txt); margin-bottom: 1rem;
+    }
+    .blog-hero h1 span { color: var(--teal); }
+    .blog-hero-sub {
+      font-size: 1.05rem; color: var(--txt2); line-height: 1.8; max-width: 600px;
+    }
+
+    /* FILTER TABS */
+    .blog-filters {
+      display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
+      padding: 2rem 0 0;
+    }
+    .filter-btn {
+      font-family: var(--ff); font-size: .75rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      padding: .4rem 1rem; border-radius: 50px; cursor: pointer;
+      border: 1px solid var(--bdr); background: transparent; color: var(--txt2);
+      transition: all .18s ease;
+    }
+    .filter-btn:hover { border-color: var(--teal); color: var(--teal); }
+    .filter-btn.active {
+      background: rgba(38,192,203,.12); border-color: rgba(38,192,203,.3); color: var(--teal);
+    }
+
+    /* BLOG GRID */
+    .blog-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; padding: 3rem 0 0;
+    }
+    .blog-card {
+      background: var(--bg2); border: 1px solid var(--bdr);
+      border-radius: 12px; overflow: hidden;
+      transition: border-color .25s, transform .25s;
+      display: flex; flex-direction: column;
+    }
+    .blog-card:hover {
+      border-color: rgba(38,192,203,.25);
+      transform: translateY(-3px);
+    }
+    .blog-card-img {
+      width: 100%; height: 180px; overflow: hidden;
+      background: var(--bg3); position: relative;
+    }
+    .blog-card-img-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; opacity: .3;
+    }
+    .blog-img-empathy { background: linear-gradient(135deg, #0C1220 0%, #1A9EA8 100%); }
+    .blog-img-empathy .blog-card-img-placeholder { opacity:1; }
+    .blog-img-evolv { background: linear-gradient(135deg, #0C1220 0%, #FF6B35 50%, #0C1220 100%); }
+    .blog-img-evolv .blog-card-img-placeholder { opacity:1; }
+    .blog-img-aeo1 { background: linear-gradient(135deg, #0C1220 0%, #C95842 100%); }
+    .blog-img-aeo1 .blog-card-img-placeholder { opacity:1; }
+    .blog-img-aeo2 { background: linear-gradient(135deg, #0C1220 0%, #4353FF 100%); }
+    .blog-img-aeo2 .blog-card-img-placeholder { opacity:1; }
+    .blog-img-aeo3 { background: linear-gradient(135deg, #0C1220 0%, #26C0CB 100%); }
+    .blog-img-aeo3 .blog-card-img-placeholder { opacity:1; }
+    .blog-card-body {
+      padding: 1.6rem; flex: 1; display: flex; flex-direction: column;
+    }
+    .blog-card-meta {
+      display: flex; align-items: center; gap: .8rem; margin-bottom: .9rem;
+    }
+    .blog-tag {
+      font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: .2rem .6rem; border-radius: 4px;
+      background: rgba(38,192,203,.08); border: 1px solid rgba(38,192,203,.15); color: var(--teal);
+    }
+    .blog-tag-strat { background: rgba(201,88,66,.08); border-color: rgba(201,88,66,.18); color: #D97060; }
+    .blog-tag-webflow { background: rgba(67,83,255,.08); border-color: rgba(67,83,255,.18); color: #7B8AFF; }
+    .blog-tag-ecomm { background: rgba(169,112,255,.08); border-color: rgba(169,112,255,.18); color: #C4A0FF; }
+    .blog-date { font-size: .72rem; color: var(--txt3); }
+    .blog-card-title {
+      font-size: 1.05rem; font-weight: 700; color: var(--txt);
+      letter-spacing: -.01em; line-height: 1.35; margin-bottom: .7rem;
+    }
+    .blog-card-title a {
+      color: inherit; text-decoration: none; transition: color .18s;
+    }
+    .blog-card-title a:hover { color: var(--teal); }
+    .blog-card-excerpt {
+      font-size: .84rem; color: var(--txt2); line-height: 1.7; flex: 1;
+    }
+    .blog-card-read {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-size: .78rem; font-weight: 700; color: var(--teal);
+      text-decoration: none; margin-top: 1.2rem; transition: gap .18s;
+    }
+    .blog-card-read:hover { gap: .55rem; }
+    .blog-card-read svg { width: 14px; height: 14px; }
+
+    /* FOOTER */
+    footer { background:var(--bg2); border-top:1px solid var(--bdr); padding:2.5rem 0; }
+    footer .wrap { display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+    .fbrand { font-size:.88rem; font-weight:800; color:var(--txt2); text-decoration:none; }
+    .fbrand em { font-style:normal; color:var(--teal); }
+    .flinks { display:flex; gap:2rem; list-style:none; flex-wrap:wrap; }
+    .flinks a { font-size:.8rem; font-weight:500; color:var(--txt3); text-decoration:none; transition:color .18s; }
+    .flinks a:hover { color:var(--txt2); }
+    .fcopy { font-size:.75rem; color:var(--txt3); }
+
+    /* REVEAL */
+    .r { opacity:0; transform:translateY(22px); transition:opacity .65s ease,transform .65s ease; }
+    .r.v { opacity:1; transform:none; }
+    .r.d1{transition-delay:.08s} .r.d2{transition-delay:.16s}
+    .r.d3{transition-delay:.24s} .r.d4{transition-delay:.32s}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .blog-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links li:not(:last-child){display:none}
+    }
+    @media(max-width:600px){
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <a href="index.html" class="nav-brand">Better Call <em>CRO SOL</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#testimonials">Testimonials</a></li>
+      <li><a href="https://calendly.com/sol-addisonapplications/30min" target="_blank" rel="noopener" class="btn btn-p" data-cta="nav_discovery_call">Book Discovery Call</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- BLOG HERO -->
+<section class="blog-hero">
+  <div class="wrap">
+    <div class="label r">Blog</div>
+    <h1 class="r d1">CRO insights from <span>the field</span></h1>
+    <p class="blog-hero-sub r d2">Practical conversion optimization strategies, A/B testing lessons, and growth frameworks — drawn from 15+ years working with enterprise brands.</p>
+    <div class="blog-filters r d3">
+      <button class="filter-btn active">All Posts</button>
+      <button class="filter-btn">A/B Testing</button>
+      <button class="filter-btn">Strategy</button>
+      <button class="filter-btn">Webflow</button>
+      <button class="filter-btn">eCommerce</button>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG GRID -->
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="blog-grid">
+
+      <!-- Post — Rename CRO (NEW) -->
+      <div class="blog-card r">
+        <div class="blog-card-img"><div class="blog-card-img-placeholder" style="font-size:2.2rem; opacity:.35;">&#129300;</div></div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag blog-tag-strat">Opinion</span>
+            <span class="blog-tag">Industry</span>
+            <span class="blog-date">Apr 2026</span>
+          </div>
+          <h3 class="blog-card-title"><a href="blog-rename-cro.html">If You Had to Rename CRO, What Would You Call It?</a></h3>
+          <p class="blog-card-excerpt">After 15+ years in the field, the name still doesn't capture what the work actually involves. Here's why it's broken — and a few ideas for what might be better.</p>
+          <a href="blog-rename-cro.html" class="blog-card-read">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Post — CRO Customer Empathy (NEW) -->
+      <div class="blog-card r">
+        <div class="blog-card-img blog-img-empathy"><div class="blog-card-img-placeholder"><svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="80" cy="50" r="25" stroke="rgba(255,255,255,.2)" stroke-width="1.5" fill="none"/><circle cx="120" cy="50" r="25" stroke="rgba(255,255,255,.2)" stroke-width="1.5" fill="none"/><path d="M95 38c0 0 5 24 5 24" stroke="rgba(38,192,203,.4)" stroke-width="1.5"/><text x="100" y="55" font-size="10" fill="rgba(255,255,255,.35)" text-anchor="middle" font-family="sans-serif" font-weight="700">EMPATHY</text></svg></div></div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag blog-tag-strat">Strategy</span>
+            <span class="blog-tag">CRO Philosophy</span>
+            <span class="blog-date">Apr 2026</span>
+          </div>
+          <h3 class="blog-card-title"><a href="blog-cro-customer-empathy.html">The Dad Test: My Conversion Rate Optimization Philosophy</a></h3>
+          <p class="blog-card-excerpt">I'm an advocate for the customer. The best CRO work starts from the assumption that visitors already want what you're offering. Your job isn't to convince them — it's to get out of their way.</p>
+          <a href="blog-cro-customer-empathy.html" class="blog-card-read">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Post 1 — Evolv AI (LIVE) -->
+      <div class="blog-card r">
+        <div class="blog-card-img blog-img-evolv"><div class="blog-card-img-placeholder"><svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30 70c20-40 40-50 70-50s50 10 70 50" stroke="rgba(255,255,255,.15)" stroke-width="1.5" fill="none"/><path d="M50 70c15-30 30-38 50-38s35 8 50 38" stroke="rgba(255,107,53,.3)" stroke-width="1.5" fill="none"/><circle cx="100" cy="20" r="4" fill="rgba(255,107,53,.5)"/><text x="100" y="85" font-size="8" fill="rgba(255,255,255,.25)" text-anchor="middle" font-family="sans-serif" font-weight="700">AI OPTIMIZATION</text></svg></div></div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag">AI &amp; Optimization</span>
+            <span class="blog-date">Mar 30, 2026</span>
+          </div>
+          <h3 class="blog-card-title"><a href="blog-evolv-ai-powered-experimentation.html">AI-Powered Ideation, Development &amp; Experimentation by Evolv AI</a></h3>
+          <p class="blog-card-excerpt">How Evolv AI uses artificial intelligence to power every stage of digital experience optimization — and why Addison Applications is the right partner to implement it.</p>
+          <a href="blog-evolv-ai-powered-experimentation.html" class="blog-card-read">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+
+      <!-- CRO + AEO Series — Part 1 (LIVE) -->
+      <div class="blog-card r d1">
+        <div class="blog-card-img blog-img-aeo1"><div class="blog-card-img-placeholder"><svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M30 30h140" stroke="rgba(255,255,255,.1)" stroke-width="1"/><path d="M30 50h140" stroke="rgba(255,255,255,.1)" stroke-width="1"/><path d="M30 70h140" stroke="rgba(255,255,255,.1)" stroke-width="1"/><path d="M40 70L70 45 100 55 130 25 160 40" stroke="rgba(201,88,66,.5)" stroke-width="2" fill="none" stroke-linecap="round"/><text x="100" y="90" font-size="8" fill="rgba(255,255,255,.25)" text-anchor="middle" font-family="sans-serif" font-weight="700">TRAFFIC EROSION</text></svg></div></div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag blog-tag-strat">Part 1 of 3</span>
+            <span class="blog-tag">CRO &amp; AEO</span>
+            <span class="blog-date">Mar 2026</span>
+          </div>
+          <h3 class="blog-card-title"><a href="blog-cro-without-aeo-part-1.html">Why CRO Without AEO Is a No-No: The Problem</a></h3>
+          <p class="blog-card-excerpt">AI-powered answer engines are intercepting buyer research before visitors ever reach your site. CRO alone is no longer enough.</p>
+          <a href="blog-cro-without-aeo-part-1.html" class="blog-card-read">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+
+      <!-- CRO + AEO Series — Part 2 (LIVE) -->
+      <div class="blog-card r d2">
+        <div class="blog-card-img blog-img-aeo2"><div class="blog-card-img-placeholder"><svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="70" cy="50" r="20" stroke="rgba(255,255,255,.12)" stroke-width="1.5" fill="none"/><circle cx="130" cy="50" r="20" stroke="rgba(67,83,255,.3)" stroke-width="1.5" fill="none"/><path d="M90 50h20" stroke="rgba(67,83,255,.4)" stroke-width="2" stroke-dasharray="4 3"/><text x="70" y="53" font-size="7" fill="rgba(255,255,255,.2)" text-anchor="middle" font-family="sans-serif" font-weight="700">SEO</text><text x="130" y="53" font-size="7" fill="rgba(67,83,255,.4)" text-anchor="middle" font-family="sans-serif" font-weight="700">AEO</text></svg></div></div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag blog-tag-strat">Part 2 of 3</span>
+            <span class="blog-tag">CRO &amp; AEO</span>
+            <span class="blog-date">Mar 2026</span>
+          </div>
+          <h3 class="blog-card-title"><a href="blog-cro-without-aeo-part-2.html">AEO and the New Rules of Visibility</a></h3>
+          <p class="blog-card-excerpt">What Answer Engine Optimization is, how AI answer engines work, and the four pillars of AEO readiness that determine whether your brand gets cited.</p>
+          <a href="blog-cro-without-aeo-part-2.html" class="blog-card-read">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+
+      <!-- CRO + AEO Series — Part 3 (LIVE) -->
+      <div class="blog-card r">
+        <div class="blog-card-img blog-img-aeo3"><div class="blog-card-img-placeholder"><svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M40 70V40l30 15 30-25 30 10 30 -10" stroke="rgba(38,192,203,.4)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="40" cy="40" r="3" fill="rgba(38,192,203,.5)"/><circle cx="70" cy="55" r="3" fill="rgba(38,192,203,.5)"/><circle cx="100" cy="30" r="3" fill="rgba(38,192,203,.5)"/><circle cx="130" cy="40" r="3" fill="rgba(38,192,203,.5)"/><circle cx="160" cy="30" r="3" fill="rgba(38,192,203,.5)"/><text x="100" y="88" font-size="8" fill="rgba(255,255,255,.25)" text-anchor="middle" font-family="sans-serif" font-weight="700">CRO + AEO</text></svg></div></div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag blog-tag-strat">Part 3 of 3</span>
+            <span class="blog-tag">CRO &amp; AEO</span>
+            <span class="blog-date">Mar 2026</span>
+          </div>
+          <h3 class="blog-card-title"><a href="blog-cro-without-aeo-part-3.html">Integrating CRO + AEO for Full-Funnel Growth</a></h3>
+          <p class="blog-card-excerpt">The five-step playbook for combining CRO and AEO into a complete growth system — from auditing AI visibility to measuring integrated results.</p>
+          <a href="blog-cro-without-aeo-part-3.html" class="blog-card-read">Read more <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></a>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="fbrand">Better Call <em>CRO SOL</em></a>
+    <ul class="flinks">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="index.html#testimonials">Testimonials</a></li>
+      <li><a href="https://www.linkedin.com/in/sol-osiatynski" target="_blank" rel="noopener" data-cta="footer_linkedin">LinkedIn</a></li>
+      <li><a href="https://calendly.com/sol-addisonapplications/30min" target="_blank" rel="noopener" data-cta="footer_discovery_call">Book Discovery Call</a></li>
+    </ul>
+    <div class="fcopy">© 2025 Better Call <em style="font-style:normal;color:var(--teal);font-weight:800;">CRO SOL</em></div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('v'); obs.unobserve(e.target); } });
+  },{ threshold:0.1, rootMargin:'0px 0px -30px 0px' });
+  document.querySelectorAll('.r').forEach(el => obs.observe(el));
+  setTimeout(()=> document.querySelectorAll('.blog-hero .r, nav .r').forEach(el=>el.classList.add('v')), 80);
+</script>
+<script>
+  document.querySelectorAll('[data-cta]').forEach(el=>{
+    el.addEventListener('click',function(){
+      gtag('event','cta_click',{
+        cta_name:this.dataset.cta,
+        cta_text:this.textContent.trim(),
+        cta_url:this.href||'',
+        page_location:window.location.pathname
+      });
+    });
+  });
+</script>
+</body>
+</html>

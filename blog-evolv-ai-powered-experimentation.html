@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KYMW4ZFQCV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KYMW4ZFQCV');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Powered Ideation, Development & Experimentation by Evolv AI — Better Call CRO SOL</title>
+  <meta name="description" content="How Evolv AI uses artificial intelligence to power ideation, development, and experimentation for digital experiences — and how Addison Applications partners with Evolv to deliver real results." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:    #080C14;
+      --bg2:   #0C1220;
+      --bg3:   #111826;
+      --bg4:   #151E2E;
+      --teal:  #26C0CB;
+      --teal2: #1A9EA8;
+      --brick: #C95842;
+      --txt:   #EEE9E2;
+      --txt2:  #8FA0BA;
+      --txt3:  #465870;
+      --bdr:   rgba(255,255,255,.07);
+      --bdr2:  rgba(255,255,255,.04);
+      --ff:    'Plus Jakarta Sans', sans-serif;
+      --r:     8px;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--txt);
+      font-family: var(--ff); font-size: 16px;
+      line-height: 1.65; overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+    .btn {
+      display:inline-flex; align-items:center; gap:.45rem;
+      font-family:var(--ff); font-weight:700; text-decoration:none;
+      cursor:pointer; border:none; transition:all .18s ease;
+    }
+    .btn-p {
+      background:var(--teal); color:#080C14;
+      font-size:.82rem; padding:.55rem 1.3rem; border-radius:6px;
+    }
+    .btn-p:hover { background:#36D0DB; transform:translateY(-1px); box-shadow:0 8px 24px rgba(38,192,203,.28); }
+
+    /* NAV */
+    nav {
+      position:sticky; top:0; z-index:200; height:64px;
+      background:rgba(8,12,20,.88); backdrop-filter:blur(20px) saturate(180%);
+      border-bottom:1px solid var(--bdr);
+    }
+    nav .wrap { height:100%; display:flex; align-items:center; justify-content:space-between; }
+    .nav-brand { font-size:.95rem; font-weight:800; letter-spacing:-.01em; color:var(--txt2); text-decoration:none; }
+    .nav-brand em { font-style:normal; color:var(--teal); }
+    .nav-links { display:flex; align-items:center; gap:2rem; list-style:none; }
+    .nav-links a { font-size:.82rem; font-weight:500; color:var(--txt2); text-decoration:none; transition:color .18s; }
+    .nav-links a:hover { color:var(--txt); }
+    .nav-links a.active { color:var(--teal); }
+    .nav-links a.btn-p { color:#080C14 !important; }
+    .nav-links a.btn-p:hover { color:#080C14 !important; }
+
+    /* POST LAYOUT */
+    .post-header {
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid var(--bdr);
+    }
+    .post-back {
+      display: inline-flex; align-items: center; gap: .4rem;
+      font-size: .8rem; font-weight: 600; color: var(--txt3);
+      text-decoration: none; margin-bottom: 2rem; transition: color .18s;
+    }
+    .post-back:hover { color: var(--teal); }
+    .post-back svg { width: 16px; height: 16px; }
+    .post-meta {
+      display: flex; align-items: center; gap: .8rem; margin-bottom: 1.4rem;
+    }
+    .post-tag {
+      font-size: .62rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: .2rem .6rem; border-radius: 4px;
+      background: rgba(38,192,203,.08); border: 1px solid rgba(38,192,203,.15); color: var(--teal);
+    }
+    .post-date { font-size: .75rem; color: var(--txt3); }
+    .post-title {
+      font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800;
+      letter-spacing: -.03em; line-height: 1.15; color: var(--txt); margin-bottom: 1.2rem;
+    }
+    .post-title span { color: var(--teal); }
+    .post-subtitle {
+      font-size: 1.05rem; color: var(--txt2); line-height: 1.8; max-width: 680px;
+    }
+
+    /* POST BODY */
+    .post-body {
+      max-width: 740px; margin: 0 auto; padding: 4rem 0 5rem;
+    }
+    .post-body h2 {
+      font-size: 1.35rem; font-weight: 800; color: var(--txt);
+      letter-spacing: -.02em; margin: 2.5rem 0 1rem;
+    }
+    .post-body h2 span { color: var(--teal); }
+    .post-body p {
+      font-size: 1rem; color: var(--txt2); line-height: 1.85; margin-bottom: 1.4rem;
+    }
+    .post-body p strong { color: var(--txt); font-weight: 600; }
+    .post-body ul {
+      list-style: none; margin: 1rem 0 1.8rem; padding: 0;
+    }
+    .post-body ul li {
+      font-size: .95rem; color: var(--txt2); line-height: 1.75;
+      padding: .5rem 0 .5rem 1.6rem; position: relative;
+      border-bottom: 1px solid var(--bdr2);
+    }
+    .post-body ul li:last-child { border-bottom: none; }
+    .post-body ul li::before {
+      content: ''; position: absolute; left: 0; top: .9rem;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(38,192,203,.3); border: 1.5px solid var(--teal);
+    }
+    .post-body ul li strong { color: var(--txt); font-weight: 600; }
+
+    /* CALLOUT BOX */
+    .post-callout {
+      background: var(--bg2); border: 1px solid var(--bdr);
+      border-left: 3px solid var(--teal);
+      border-radius: 8px; padding: 1.8rem 2rem; margin: 2rem 0;
+    }
+    .post-callout p { margin-bottom: 0; }
+    .post-callout p strong { color: var(--teal); }
+
+    /* CTA BANNER */
+    .post-cta {
+      background: linear-gradient(135deg, rgba(38,192,203,.1), rgba(38,192,203,.03));
+      border: 1px solid rgba(38,192,203,.18); border-radius: 12px;
+      padding: 2.5rem; text-align: center; margin: 3rem 0 0;
+    }
+    .post-cta h3 {
+      font-size: 1.2rem; font-weight: 800; color: var(--txt); margin-bottom: .6rem;
+    }
+    .post-cta p {
+      font-size: .9rem; color: var(--txt2); margin-bottom: 1.5rem; line-height: 1.7;
+    }
+    .post-cta .btn-p {
+      font-size: .9rem; padding: .7rem 1.6rem; border-radius: 8px;
+    }
+
+    /* AUTHOR */
+    .post-author {
+      display: flex; align-items: center; gap: 1.2rem;
+      padding: 2rem 0; margin-top: 2.5rem;
+      border-top: 1px solid var(--bdr);
+    }
+    .post-author-avatar {
+      width: 52px; height: 52px; border-radius: 50%; flex-shrink: 0;
+      overflow: hidden;
+    }
+    .post-author-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .post-author-name { font-size: .95rem; font-weight: 700; color: var(--txt); }
+    .post-author-role { font-size: .8rem; color: var(--txt2); margin-top: .15rem; }
+
+    /* FOOTER */
+    footer { background:var(--bg2); border-top:1px solid var(--bdr); padding:2.5rem 0; }
+    footer .wrap { display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+    .fbrand { font-size:.88rem; font-weight:800; color:var(--txt2); text-decoration:none; }
+    .fbrand em { font-style:normal; color:var(--teal); }
+    .flinks { display:flex; gap:2rem; list-style:none; flex-wrap:wrap; }
+    .flinks a { font-size:.8rem; font-weight:500; color:var(--txt3); text-decoration:none; transition:color .18s; }
+    .flinks a:hover { color:var(--txt2); }
+    .fcopy { font-size:.75rem; color:var(--txt3); }
+
+    /* REVEAL */
+    .r { opacity:0; transform:translateY(22px); transition:opacity .65s ease,transform .65s ease; }
+    .r.v { opacity:1; transform:none; }
+    .r.d1{transition-delay:.08s} .r.d2{transition-delay:.16s}
+    .r.d3{transition-delay:.24s} .r.d4{transition-delay:.32s}
+
+    @media(max-width:900px){
+      .nav-links li:not(:last-child){display:none}
+      .post-body { padding: 3rem 0 4rem; }
+    }
+    @media(max-width:600px){
+      .post-header{padding:2.5rem 0 2rem}
+      .post-callout{padding:1.2rem 1.2rem}
+      .post-cta{padding:1.8rem 1.2rem}
+      .post-body h2{font-size:1.15rem}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="wrap">
+    <a href="index.html" class="nav-brand">Better Call <em>CRO SOL</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#testimonials">Testimonials</a></li>
+      <li><a href="https://calendly.com/sol-addisonapplications/30min" target="_blank" rel="noopener" class="btn btn-p" data-cta="nav_discovery_call">Book Discovery Call</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- POST HEADER -->
+<section class="post-header">
+  <div class="wrap">
+    <a href="blog.html" class="post-back r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg> Back to Blog</a>
+    <div class="post-meta r d1">
+      <span class="post-tag">AI &amp; Optimization</span>
+      <span class="post-date">Mar 30, 2026</span>
+    </div>
+    <h1 class="post-title r d2">AI-Powered Ideation, Development &amp; Experimentation <span>by Evolv AI</span></h1>
+    <p class="post-subtitle r d3">How Evolv AI uses artificial intelligence to power every stage of digital experience optimization — and why Addison Applications is the right partner to implement it.</p>
+  </div>
+</section>
+
+<!-- POST BODY -->
+<div class="wrap">
+  <article class="post-body">
+
+    <h2 class="r">What is <span>Evolv AI</span>?</h2>
+    <p class="r">Evolv AI is a SaaS solution that allows companies of all sizes to use the power of AI to come up with, develop, and test improvements in their user experience. Feed Evolv AI's platform your brand guidelines, product documentation, marketing research, experimentation results, and analytics — and it will use those insights alongside computer vision and generative AI to evaluate the effectiveness of your digital experiences against specific audience segments or goals.</p>
+    <p class="r">It then suggests a roadmap of digital experience improvements that gets continuously updated based on new data as it becomes available. Think of it as an always-on optimization strategist powered by machine learning.</p>
+
+    <h2 class="r">What type of companies can use <span>Evolv AI</span>?</h2>
+    <p class="r">Any company with goals for their website can use Evolv AI. Whether you're focused on <strong>B2B lead generation</strong>, <strong>eCommerce conversion</strong>, or <strong>subscription-based services</strong>, you can define the goals you want to improve — and Evolv will use AI to generate a prioritized list of suggested changes.</p>
+
+    <div class="post-callout r">
+      <p><strong>No minimum traffic requirement.</strong> You don't need enterprise-level volume to start benefiting from AI-powered suggestions. Evolv AI's pricing model is designed with plans that work for customers of all sizes.</p>
+    </div>
+
+    <h2 class="r">Does Evolv AI work with <span>Shopify</span>?</h2>
+    <p class="r">Yes — Evolv AI works with Shopify websites, and Addison Applications has seen real business impact for Shopify customers verified through A/B and multivariate testing. We're experts at implementing Evolv AI on Shopify sites and then updating the user experience to drive measurable improvements in:</p>
+    <ul class="r">
+      <li><strong>Conversion Rate</strong> — turning more visitors into buyers</li>
+      <li><strong>Average Order Value</strong> — increasing revenue per transaction</li>
+      <li><strong>Customer Engagement</strong> — reducing bounce and improving time on site</li>
+    </ul>
+
+    <h2 class="r">How Evolv AI &amp; <span>Addison Applications</span> partner together</h2>
+    <p class="r">Addison Applications has an official partnership with Evolv AI — and on top of that, our Director of Optimization worked at Evolv AI for close to 3 years. We know the tool inside and out, and have seen it drive real business value for companies both large and small.</p>
+    <p class="r">We've delivered results for <strong>one of the largest telecom companies in the world</strong> as well as <strong>a Shopify customer in the nutraceutical industry</strong>. Whether you're enterprise or mid-market, we can help you:</p>
+    <ul class="r">
+      <li><strong>Implement Evolv AI</strong> on your website with proper configuration</li>
+      <li><strong>Develop and refine</strong> AI-suggested UX enhancements</li>
+      <li><strong>Code custom changes</strong> and launch experiments that move revenue</li>
+    </ul>
+
+    <!-- CTA -->
+    <div class="post-cta r">
+      <h3>Interested in AI-powered optimization?</h3>
+      <p>Let's talk about how Evolv AI can drive real results for your website.</p>
+      <a href="https://calendly.com/sol-addisonapplications/30min" target="_blank" rel="noopener" class="btn btn-p" data-cta="blog_post_discovery_call">Book a Discovery Call</a>
+    </div>
+
+    <!-- AUTHOR -->
+    <div class="post-author r">
+      <div class="post-author-avatar"><img src="Sol_Real_Image.jpeg" alt="Sol Osiatynski" /></div>
+      <div>
+        <div class="post-author-name">Sol Osiatynski</div>
+        <div class="post-author-role">Director of Optimization, Addison Applications &middot; Former Evolv AI</div>
+      </div>
+    </div>
+
+  </article>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <a href="index.html" class="fbrand">Better Call <em>CRO SOL</em></a>
+    <ul class="flinks">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="index.html#testimonials">Testimonials</a></li>
+      <li><a href="https://www.linkedin.com/in/sol-osiatynski" target="_blank" rel="noopener" data-cta="footer_linkedin">LinkedIn</a></li>
+      <li><a href="https://calendly.com/sol-addisonapplications/30min" target="_blank" rel="noopener" data-cta="footer_discovery_call">Book Discovery Call</a></li>
+    </ul>
+    <div class="fcopy">&copy; 2025 Better Call <em style="font-style:normal;color:var(--teal);font-weight:800;">CRO SOL</em></div>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('v'); obs.unobserve(e.target); } });
+  },{ threshold:0.1, rootMargin:'0px 0px -30px 0px' });
+  document.querySelectorAll('.r').forEach(el => obs.observe(el));
+  setTimeout(()=> document.querySelectorAll('.post-header .r, nav .r').forEach(el=>el.classList.add('v')), 80);
+</script>
+<script>
+  document.querySelectorAll('[data-cta]').forEach(el=>{
+    el.addEventListener('click',function(){
+      gtag('event','cta_click',{
+        cta_name:this.dataset.cta,
+        cta_text:this.textContent.trim(),
+        cta_url:this.href||'',
+        page_location:window.location.pathname
+      });
+    });
+  });
+</script>
+</body>
+</html>

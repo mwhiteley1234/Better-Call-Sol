@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <!-- Option 2: Upward conversion arrow icon + bold wordmark -->
+  <defs>
+    <linearGradient id="g2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#1A9EA8"/>
+      <stop offset="100%" stop-color="#26C0CB"/>
+    </linearGradient>
+  </defs>
+  <!-- Circular icon background -->
+  <circle cx="50" cy="60" r="45" fill="#0C1220" stroke="#26C0CB" stroke-width="2.5"/>
+  <!-- Upward arrow / growth chart inside circle -->
+  <path d="M28 82 L42 55 L54 65 L72 35" fill="none" stroke="url(#g2)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Arrow head -->
+  <path d="M64 35 L72 35 L72 43" fill="none" stroke="#26C0CB" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Small dot at start -->
+  <circle cx="28" cy="82" r="3" fill="#26C0CB"/>
+  <!-- Wordmark -->
+  <text x="112" y="48" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="12" font-weight="700" fill="#465870" letter-spacing="3">BETTER CALL</text>
+  <text x="112" y="84" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="40" font-weight="800" fill="#EEE9E2" letter-spacing="-1.5">CRO</text>
+  <text x="232" y="84" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-size="40" font-weight="800" fill="#26C0CB" letter-spacing="-1.5">SOL</text>
+  <!-- Teal accent bar -->
+  <rect x="112" y="55" width="50" height="3" rx="1.5" fill="#26C0CB"/>
+</svg>
